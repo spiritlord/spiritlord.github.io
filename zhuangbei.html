@@ -1,134 +1,100 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
+
+<!-- Head tag -->
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="罗斯特困难团本上线前版本毕业装备搭配狂战士  
+
+鬼泣  
+
+男大枪  
+
+男漫游  
+
+女散打  
+
+女气功  
+
+元素  
+
+魔道  
+
+奶妈">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!-- Title -->
+    
     <title>毕业装备推荐 | dnf手游攻略整合</title>
-    <meta name="author" content="John Doe" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <link rel="icon" href="/images/avatar.jpg" />
-    <link rel="preconnect" href="https://s4.zstatic.net" />
-<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-<link rel="preconnect" href="https://fonts.googleapis.cn" />
-<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
-<link
-    rel="stylesheet"
-    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
-/>
-<script> const mixins = {}; </script>
 
-<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
 
 
-<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
+    <!-- Custom Fonts -->
+    <link href="//cdn.jsdelivr.net/npm/font-awesome@4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
+    <!-- jQuery -->
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/js/bootstrap.min.js"></script>
 
-
-<script src="/js/lib/preview.js"></script>
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/css/main.css" />
-
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 <meta name="generator" content="Hexo 7.2.0"></head>
+
+
 <body>
-    <div id="layout">
-        <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
+
+    <!-- Content -->
+    <section class="article-container">
+    <!-- Back Home -->
+    <a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+        <!-- Page Header -->
+        <header class="intro-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="post-heading">
+                            <h1>
+                                毕业装备推荐
+                            </h1>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </transition>
-        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>DNF手游攻略整合</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-    </nav>
-    <nav id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;DNF手游攻略整合</span>
-        </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-            </div>
-        </transition>
-    </nav>
-</div>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
+        </header>
 
-        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>毕业装备推荐</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/6/6
-        </span>
-        
-        
-    </div>
-    
-    <div class="content" v-pre>
-        <h1 id="罗斯特困难团本上线前版本毕业装备搭配"><a href="#罗斯特困难团本上线前版本毕业装备搭配" class="headerlink" title="罗斯特困难团本上线前版本毕业装备搭配"></a><code>罗斯特困难团本上线前版本毕业装备搭配</code></h1><h2 id="狂战士"><a href="#狂战士" class="headerlink" title="狂战士"></a>狂战士</h2><center> <img src="zhuangbei/kuangzhan.jpg" /> </center>
+        <!-- Post Content -->
+        <article>
+            <div class="container">
+                <div class="row">
+                    <!-- Post Main Content -->
+                    <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <h1 id="罗斯特困难团本上线前版本毕业装备搭配"><a href="#罗斯特困难团本上线前版本毕业装备搭配" class="headerlink" title="罗斯特困难团本上线前版本毕业装备搭配"></a><code>罗斯特困难团本上线前版本毕业装备搭配</code></h1><h2 id="狂战士"><a href="#狂战士" class="headerlink" title="狂战士"></a>狂战士</h2><center> <img src="zhuangbei/kuangzhan.jpg" /> </center>
 
 <h2 id="鬼泣"><a href="#鬼泣" class="headerlink" title="鬼泣"></a>鬼泣</h2><center> <img src="zhuangbei/guiqi.jpg" /> </center>
 
@@ -145,50 +111,83 @@
 <h2 id="魔道"><a href="#魔道" class="headerlink" title="魔道"></a>魔道</h2><center> <img src="zhuangbei/modao.jpg" /> </center>
 
 <h2 id="奶妈"><a href="#奶妈" class="headerlink" title="奶妈"></a>奶妈</h2><center> <img src="zhuangbei/naima.jpg" /> </center>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-</div>
 
-            <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2022 - 2024 dnf手游攻略整合
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;John Doe
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
-    </div>
-</footer>
+                            <!-- Meta -->
+                            <div class="post-meta">
+                                <hr>
+                                <br>
+                                <div class="post-tags">
+                                    
+                                </div>
+                                <div class="post-date">
+                                    
+                                        2024-06-06
+                                    
+                                </div>
+                            </div>
+                    </div>
 
-        </div>
-        
-        <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
+                    <!-- Comments -->
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <!-- Disqus Comments -->
+
+
+                    </div>
+                </div>
             </div>
-        </transition>
-        
-    </div>
-    <script src="/js/main.js"></script>
+        </article>
+</section>
+
+<!-- Image viewer-->
+
+    <!-- Custom picture view-->
+    <link href="/css/viewer.min.css" rel="stylesheet" />
+    <script
+      src="/js/viewer.min.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
     
+    <script type="text/javascript">
+      // set image viewer
+      Viewer.setDefaults({
+        zoomRatio: [0.5],
+        navbar: false,
+        toolbar: false,
+        button: false,
+        title: [2, (image, imageData) => `${image.alt}`],
+        show: function() {
+          this.viewer.zoomTo(0.5);
+        }
+      });
+      var imageList = document.getElementsByTagName("img");
+      Array.prototype.forEach.call(imageList, element => {
+        var viewer = new Viewer(element);
+      });
+    </script>
+
     
 
+<!-- TOC -->
 
+    <aside id="article-toc" role="navigation" class="fixed">
+        <div id="article-toc-inner">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%97%E6%96%AF%E7%89%B9%E5%9B%B0%E9%9A%BE%E5%9B%A2%E6%9C%AC%E4%B8%8A%E7%BA%BF%E5%89%8D%E7%89%88%E6%9C%AC%E6%AF%95%E4%B8%9A%E8%A3%85%E5%A4%87%E6%90%AD%E9%85%8D"><span class="toc-text">罗斯特困难团本上线前版本毕业装备搭配</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8B%82%E6%88%98%E5%A3%AB"><span class="toc-text">狂战士</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AC%BC%E6%B3%A3"><span class="toc-text">鬼泣</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B7%E5%A4%A7%E6%9E%AA"><span class="toc-text">男大枪</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B7%E6%BC%AB%E6%B8%B8"><span class="toc-text">男漫游</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%B3%E6%95%A3%E6%89%93"><span class="toc-text">女散打</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%B3%E6%B0%94%E5%8A%9F"><span class="toc-text">女气功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0"><span class="toc-text">元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AD%94%E9%81%93"><span class="toc-text">魔道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%B6%E5%A6%88"><span class="toc-text">奶妈</span></a></li></ol></li></ol>
+        </div>
+    </aside>
 
+    <!-- Scripts -->
+    <script type="text/javascript">
+    console.log("© zchen9 🙋 2015-" + new Date().getFullYear());
+</script>
+  
+    <!-- Google Analytics -->
+    
+
+    <!-- Service Worker -->
+    <!-- if using service worker -->
 
     
 </body>
+
 </html>
