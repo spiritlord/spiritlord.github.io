@@ -1,258 +1,422 @@
+
 <!DOCTYPE html>
-<html lang="zh-Hans">
-
-<!-- Head tag -->
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="John Doe">
-    
-
-    <!-- Title -->
-    
+    <meta charset="utf-8" />
     <title>dnf手游攻略整合</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="//cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
 
 
-    <!-- Custom Fonts -->
-    <link href="//cdn.jsdelivr.net/npm/font-awesome@4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
 
-    <!-- jQuery -->
-    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/js/bootstrap.min.js"></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
 <meta name="generator" content="Hexo 7.2.0"></head>
-
-
 <body>
-
-    <!-- Content -->
-    <!-- Go Site -->
-
-
-
-<!-- Main Content -->
-<section class="intro">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/banbenqianxian.html">
-        <h2 class="post-title">
-            新版本前线
-        </h2>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>DNF手游攻略整合</span>
+        </a>
         
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/zhuangbei.html">
-        <h2 class="post-title">
-            毕业装备推荐
-        </h2>
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
         
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/dazao.html">
-        <h2 class="post-title">
-            打造细节
-        </h2>
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
         
-    </a>
-</div>
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;DNF手游攻略整合</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
                 
             </div>
-        </div>
-        <!-- Pagination -->
-        <ul class="pagiantion">
-    
-    
-</ul>
-        <!-- Search -->
-        
-    <a class="nav-search" data-toggle="modal" data-target="#searchModalCenter">
-      <i class="fa fa-search"></i>
-    </a>
-    
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div id="home-head">
     <div
-      class="modal fade"
-      id="searchModalCenter"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="searchModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <input
-              type="text"
-              id="local-search-input"
-              class="form-control"
-              placeholder=""
-            />
-          </div>
-          <div class="modal-body">
-            <div id="local-search-result"></div>
-          </div>
+        id="home-background"
+        ref="homeBackground"
+        data-images="/images/background.jpg"
+    ></div>
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>dnf手游攻略整合</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+</div>
+<div
+    id="home-posts-wrap"
+    ref="homePostsWrap"
+    true
+>
+    <div id="home-posts">
+        
+
+<div class="post">
+    <a href="/banbenqianxian.html">
+        <h2 class="post-title">新版本前线</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/6/6
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h3 id="剑魂、阿修罗与第一个团本"><a href="#剑魂、阿修罗与第一个团本" class="headerlink" title="剑魂、阿修罗与第一个团本"></a>剑魂、阿修罗与第一个团本</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/bdhFFaRKqYT5prSfaKM5FQ">传送门</a></p>
+<h3 id="新挑战、新装备、新宠物、小剧透！"><a href="#新挑战、新装备、新宠物、小剧透！" class="headerlink" title="新挑战、新装备、新宠物、小剧透！"></a>新挑战、新装备、新宠物、小剧透！</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/xnXbhjRhfQbl1qDmQ6W0Yw">传送门</a></p>
+
+            
         </div>
-      </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/banbenqianxian.html" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/zhuangbei.html">
+        <h2 class="post-title">毕业装备推荐</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/6/6
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h1 id="罗斯特困难团本上线前版本毕业装备搭配"><a href="#罗斯特困难团本上线前版本毕业装备搭配" class="headerlink" title="罗斯特困难团本上线前版本毕业装备搭配"></a><code>罗斯特困难团本上线前版本毕业装备搭配</code></h1><h2 id="狂战士"><a href="#狂战士" class="headerlink" title="狂战士"></a>狂战士</h2><center> <img src="zhuangbei/kuangzhan.jpg" /> </center>
+
+<h2 id="鬼泣"><a href="#鬼泣" class="headerlink" title="鬼泣"></a>鬼泣</h2><center> <img src="zhuangbei/guiqi.jpg" /> </center>
+
+<h2 id="男大枪"><a href="#男大枪" class="headerlink" title="男大枪"></a>男大枪</h2><center> <img src="zhuangbei/daqiang.jpg" /> </center>
+
+<h2 id="男漫游"><a href="#男漫游" class="headerlink" title="男漫游"></a>男漫游</h2><center> <img src="zhuangbei/manyou.jpg" /> </center>
+
+<h2 id="女散打"><a href="#女散打" class="headerlink" title="女散打"></a>女散打</h2><center> <img src="zhuangbei/sanda.jpg" /> </center>
+
+<h2 id="女气功"><a href="#女气功" class="headerlink" title="女气功"></a>女气功</h2><center> <img src="zhuangbei/qigong.jpg" /> </center>
+
+<h2 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h2><center> <img src="zhuangbei/yuansu.jpg" /> </center>
+
+<h2 id="魔道"><a href="#魔道" class="headerlink" title="魔道"></a>魔道</h2><center> <img src="zhuangbei/modao.jpg" /> </center>
+
+<h2 id="奶妈"><a href="#奶妈" class="headerlink" title="奶妈"></a>奶妈</h2><center> <img src="zhuangbei/naima.jpg" /> </center>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/zhuangbei.html" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/dazao.html">
+        <h2 class="post-title">打造细节</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/6/6
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>本篇是整合dnf手游细节打造，不一定满足所有冒险家的实际情况，如有错误，欢迎指出.</p>
+<h2 id="基础属性类"><a href="#基础属性类" class="headerlink" title="基础属性类"></a>基础属性类</h2><h3 id="魔力强化"><a href="#魔力强化" class="headerlink" title="魔力强化"></a>魔力强化</h3><center> <img src="dazao/moli.jpg" /> </center>
+用小号点能给大号省很多金币.
+提升优先级：力智 > 暴击 > 命中 > 其他.
+性价比最高点发为按优先级依次大5级，如：力智25级，暴击20级，命中15级，其他10级.
+其他在有属性攻击前提下均衡点上，把属强拉起来.
+
+<h3 id="工会增益"><a href="#工会增益" class="headerlink" title="工会增益"></a>工会增益</h3><p>工会币充足的全部点满，不足的顺序依次为：属强 &gt; 双攻 &gt; 四维 &gt; 暴击.</p>
+<h3 id="冒险团等级"><a href="#冒险团等级" class="headerlink" title="冒险团等级"></a>冒险团等级</h3><center> <img src="dazao/maoxiantuan.jpg" /> </center>
+有精力的多起号，一般4个55级号就够了，没时间的可以练两个35级小号，每天跑跑远征.
+
+<h3 id="角色成就"><a href="#角色成就" class="headerlink" title="角色成就"></a>角色成就</h3><center> <img src="dazao/chengjiu.jpg" /> </center>
+可以先挑仓库升级/刷图一类容易完成的先做，其次，有低等级粉装的，也可以完成一下强化20的成就.
+刷图的成就可以卡着最后1pl去做.
+
+<p>tips：<br>半兽人成就里的犬人哈多目前存在bug，不要浪费pl去刷.</p>
+<h2 id="装备细节类"><a href="#装备细节类" class="headerlink" title="装备细节类"></a>装备细节类</h2><h3 id="外传任务"><a href="#外传任务" class="headerlink" title="外传任务"></a>外传任务</h3><center> <img src="dazao/waizhuan.jpg" /> </center>
+<center> <img src="dazao/zhizuo.jpg" /> </center>
+对话可以获得一个团本勋章，之前跳过的也没关系，现在可以通过制作获得.
+
+<h3 id="工会勋章"><a href="#工会勋章" class="headerlink" title="工会勋章"></a>工会勋章</h3><center> <img src="dazao/gonghui1.jpg" /> </center>
+<center> <img src="dazao/gonghui2.jpg" /> </center>
+<center> <img src="dazao/gonghui3.jpg" /> </center>
+<center> <img src="dazao/gonghui4.jpg" /> </center>
+<center> <img src="dazao/gonghui5.jpg" /> </center>
+<center> <img src="dazao/gonghui6.jpg" /> </center>
+工会勋章目前能获得最好的是紫色的，如果资源充足，可以把捐赠拉满，去兑换一个自选紫色勋章礼盒，只有紫色勋章可以镶嵌徽章.
+
+<h3 id="时装外观"><a href="#时装外观" class="headerlink" title="时装外观"></a>时装外观</h3><center> <img src="dazao/tiankong.png" /> </center>
+<center> <img src="dazao/putong.jpg" /> </center>
+<center> <img src="dazao/duibi1.jpg" /> </center>
+<center> <img src="dazao/duibi2.jpg" /> </center>
+手游目前最好的装扮是天空套，0氪和微氪可以搬砖买导师套或者高级时装，天空套的属性比导师套和高级时装高不了多少，纯色和透明也不会增加更多属性，平民党最后一个提升的地方.
+
+<h3 id="武器装扮"><a href="#武器装扮" class="headerlink" title="武器装扮"></a>武器装扮</h3><center> <img src="dazao/wuqizhuangban.jpg" /> </center>
+马赛克武器装扮是目前最好的属性，可以尽快拿下，目前已涨价到10w，可以等降价购买.
+
+<h3 id="宠物"><a href="#宠物" class="headerlink" title="宠物"></a>宠物</h3><center> <img src="dazao/chongwu1.jpg" /> </center>
+<center> <img src="dazao/chongwu2.jpg" /> </center>
+<center> <img src="dazao/binggan.jpg" /> </center>
+现在最好的宠物是团本宠物，有条件的可以买一个，积分商城里的饼干有能力的尽可能拉一下，宠物升满级提升还是很可观的.
+
+<h3 id="宠物装备"><a href="#宠物装备" class="headerlink" title="宠物装备"></a>宠物装备</h3><center> <img src="dazao/chongwuzhuangbei1.jpg" /> </center>
+<center> <img src="dazao/chongwuzhuangbei2.jpg" /> </center>
+罗斯特团本上线后有神器级别的宠物装备，结合团本宠物能触发套装效果，没有的可以先用蓝色品质过渡.
+<center> <img src="dazao/chongwuzhuangbei3.jpg" /> </center>
+<center> <img src="dazao/chongwuzhuangbei4.jpg" /> </center>
+<center> <img src="dazao/chongwuzhuangbei5.jpg" /> </center>
+宠物装备属性选择：力智，物魔攻，对应属强.
+
+<h2 id="商城特色类"><a href="#商城特色类" class="headerlink" title="商城特色类"></a>商城特色类</h2><h3 id="称号"><a href="#称号" class="headerlink" title="称号"></a>称号</h3><center> <img src="dazao/chenghaoduibi.png" /> </center>
+升级之后的导师套称号只比普通导师套称号多了城镇移速，平民党可以搬砖买导师套称号即可.
+
+<h3 id="光环"><a href="#光环" class="headerlink" title="光环"></a>光环</h3><center> <img src="dazao/guanghuan1.jpg" /> </center>
+<center> <img src="dazao/guanghuan2.jpg" /> </center>
+氪佬用多买多送的光环，平民党依旧用导师套的光环，不是因为差距小，而是没办法.
+
+<h3 id="勋章"><a href="#勋章" class="headerlink" title="勋章"></a>勋章</h3><center> <img src="dazao/daoshixunzhang1.jpg" /> </center>
+<center> <img src="dazao/daoshixunzhang2.jpg" /> </center>
+导师套里的紫色勋章，可以在勇气商店买随机调整箱洗自己想要的.
+
+<h3 id="宝珠"><a href="#宝珠" class="headerlink" title="宝珠"></a>宝珠</h3><center> <img src="dazao/xunzhangbaozhu1.jpg" /> </center>
+<center> <img src="dazao/xunzhangbaozhu2.jpg" /> </center>
+多买多送的勋章宝珠是毕业宝珠，平民党用勇气商店的悟道宝珠.
+<center> <img src="dazao/wuqibaozhu1.jpg" /> </center>
+<center> <img src="dazao/wuqibaozhu2.jpg" /> </center>
+灵悦币的武器宝珠是毕业宝珠，平民党搬砖买虫王卡即可(现阶段比灵悦宝珠少大概1%的伤害，对强化等级低的提升超过5%).
+
+<h2 id="魔法封印类"><a href="#魔法封印类" class="headerlink" title="魔法封印类"></a>魔法封印类</h2><p>装备的魔法封印分为普通封印和特性封印，简称小词条和大词条.</p>
+<center> <img src="dazao/fengyin1.jpg" /> </center>
+紫色装备：1个小词条
+<center> <img src="dazao/fengyin2.jpg" /> </center>
+粉色装备：2个小词条
+<center> <img src="dazao/fengyin3.jpg" /> </center>
+ss装备：1个大词条 + 2个小词条
+
+<h3 id="毕业词条"><a href="#毕业词条" class="headerlink" title="毕业词条"></a>毕业词条</h3><p>武器：伤害+5% + 小词条力智 &gt; 力智+小词条力智<br>防具：力智 &gt; 暴击<br>首饰：属强 &gt; 力智</p>
+<p>tips：<br>过渡装备不要浪费金币去洗，只要有1个能用的词条就行，后期金币紧缺.<br>对于有正义手镯的冒险家，如果塔手镯有自己需要的属强大词条，那么强度将大于正义手镯.</p>
+<h3 id="封印继承"><a href="#封印继承" class="headerlink" title="封印继承"></a>封印继承</h3><p>副本刷到的ss不要急着分解，先解除封印看一下是不是自己需要的词条，如果有毕业词条，就按以下步骤继承：</p>
+<ol>
+<li>把自身装备继承到毕业词条装备上，不勾选继承魔法封印选项，只继承强化和附魔.</li>
+<li>把装备再反向继承回来，此时勾选继承魔法封印选项，全部继承回来即可.</li>
+</ol>
+<p>总结：一句话就是一共继承两次，一次点继承魔法封印选项，一次不点，顺序随意.</p>
+<p>tips：<br>遇到两个装备无法继承的情况，如果两件装备都没有强化，那么随意选中其中一件装备强化1级即可，如果两件装备都有强化，则需要把其中一件装备的强化继承出去.<br>只能同部位继承.</p>
+<h2 id="徽章镶嵌类"><a href="#徽章镶嵌类" class="headerlink" title="徽章镶嵌类"></a>徽章镶嵌类</h2><h3 id="普通徽章"><a href="#普通徽章" class="headerlink" title="普通徽章"></a>普通徽章</h3><center> <img src="dazao/huizhang1.jpg" /> </center>
+<center> <img src="dazao/huizhang2.jpg" /> </center>
+每天商城购买即可，可以点一下徽章左下角小心心，收藏后可在特别关注一栏一键购买.
+平民党7级以下不用幸运符，氪佬随意.
+平民党主要买红绿徽章，其余颜色徽章升到5~6级即可，氪佬随意.
+
+<h3 id="白金徽章"><a href="#白金徽章" class="headerlink" title="白金徽章"></a>白金徽章</h3><center> <img src="dazao/baijin1.jpg" /> </center>
+<center> <img src="dazao/baijin2.jpg" /> </center>
+附魔称号的徽章只有力智和属强两种，平民党带力智，氪佬带属强(积分商城，战令，封印之匙).
+
+<h3 id="银色徽章"><a href="#银色徽章" class="headerlink" title="银色徽章"></a>银色徽章</h3><p>银色徽章是打在勋章上的，目前只有紫色勋章可以打，世界boss和工会币均可获得.</p>
+<h2 id="品级调整附魔类"><a href="#品级调整附魔类" class="headerlink" title="品级调整附魔类"></a>品级调整附魔类</h2><h3 id="品级调整"><a href="#品级调整" class="headerlink" title="品级调整"></a>品级调整</h3><p>平民党:<br>    武器：93%(看双攻数值)<br>    防具：80%(看力智数值)<br>氪佬:<br>    武器：97%(看双攻数值)<br>    防具：90%(看力智数值)</p>
+<h3 id="附魔"><a href="#附魔" class="headerlink" title="附魔"></a>附魔</h3><p>武器：利刃宝珠 &gt; 双攻卡片<br>首饰：属强</p>
+<p>物理：<br>    头肩：攻速<br>    上下衣：力量<br>    腰带：任意<br>    鞋子：命中</p>
+<p>魔法：<br>    头肩：暴击<br>    上下衣：智力<br>    腰带：暴击<br>    鞋子：暴击</p>
+<p>tips：<br>武器最好不要打属性赋予卡，会亏伤害，吃属性药即可.<br>卡片最好是自己合成，有一些卡片是买不到的，合成卡片可以用猫妖这种比较便宜的卡，平民党建议2张一合，氪佬4张一合.</p>
+<h2 id="强化类"><a href="#强化类" class="headerlink" title="强化类"></a>强化类</h2><p>强化优先级：武器 &gt; 首饰 &gt; 防具<br>性价比最高强化方式：武器比首饰高3级，首饰比防具高2级，比如武器6级，首饰3级，防具1级，氪佬直接拉满.</p>
+<p>tips：<br>如果强化一次所需的碳和金币的总和成本大于幸运符，则使用幸运符.</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/dazao.html" class="go-post">阅读全文</a>
+</div>
+
+
+        <div class="page-current">
+    
+    <span class="current">1</span>
+    
+    
+    
+    
+</div>
+
     </div>
     
-    <script type="text/javascript">
-      // define the search function
-      var searchFunc = function(path, search_id, content_id) {
-        "use strict";
-        $.ajax({
-          url: path,
-          dataType: "xml",
-          success: function(xmlResponse) {
-            // get the contents from search data
-            var datas = $("entry", xmlResponse)
-              .map(function() {
-                return {
-                  title: $("title", this).text(),
-                  content: $("content", this).text(),
-                  url: $("id", this).text()
-                };
-              })
-              .get();
-            var $input = document.getElementById(search_id);
-            var $resultContent = document.getElementById(content_id);
-            $input.addEventListener("input", function() {
-              var str = '<ul class="search-result-list">';
-              var keywords = this.value
-                .trim()
-                .toLowerCase()
-                .split(/[\s\-]+/);
-              $resultContent.innerHTML = "";
-              if (this.value.trim().length <= 0) {
-                return;
-              }
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = true;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content
-                  .trim()
-                  .replace(/<[^>]+>/g, "")
-                  .toLowerCase();
-                var data_url = data.url;
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if (data_title != "" && data_content != "") {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if (index_title < 0 && index_content < 0) {
-                      isMatch = false;
-                    } else {
-                      if (index_content < 0) {
-                        index_content = 0;
-                      }
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  str +=
-                    "<li><a href='" +
-                    data_url +
-                    "' class='search-result-title'>" +
-                    data_title;
-                  var content = data.content.trim().replace(/<[^>]+>/g, "");
-                  if (first_occur >= 0) {
-                    // cut out 30 characters
-                    var start = first_occur - 15;
-                    var end = first_occur + 15;
-                    if (start < 0) {
-                      start = 0;
-                    }
-                    if (start == 0) {
-                      end = 30;
-                    }
-                    if (end > content.length) {
-                      end = content.length;
-                    }
-    
-                    var match_content = content.substr(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword) {
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(
-                        regS,
-                        '<em class="search-keyword">' + keyword + "</em>"
-                      );
-                    });
-    
-                    str += '<p class="search-result">' + match_content + "...</p>";
-                  }
-                  str += "</a></li>";
-                }
-              });
-              str += "</ul>";
-              $resultContent.innerHTML = str;
-            });
-          }
-        });
-      };
-    
-      // use atom.xml to search blog
-      searchFunc("/atom.xml", "local-search-input", "local-search-result");
-      $("#searchModalCenter").on("shown.bs.modal", function(e) {
-        setTimeout(function() {
-          $("#local-search-input").focus();
-        }, 1);
-      });
-    </script>
+    <div id="home-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">John Doe</div>
+        <div class="description">
+            <p>Description<br>…</p>
 
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://spiritlord.github.io/">Argvchs</a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
 
     </div>
-</section>
-
-    <!-- Scripts -->
-    <script type="text/javascript">
-    console.log("© zchen9 🙋 2015-" + new Date().getFullYear());
-</script>
-  
-    <!-- Google Analytics -->
     
+</div>
 
-    <!-- Service Worker -->
-    <!-- if using service worker -->
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 dnf手游攻略整合
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
 
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
     
 </body>
-
 </html>
